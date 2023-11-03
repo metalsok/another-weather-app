@@ -1,0 +1,54 @@
+.search {
+  display: flex;
+  justify-content: center;
+
+  &-input {
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    outline: none;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.weather-card {
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  border: solid lightgrey 0.1rem;
+  border-radius: 1rem;
+  background-color: #eae7e7;
+
+  &__title {
+    margin: 1rem;
+  }
+}
+
+.weather-data {
+  display: flex;
+  justify-content: space-between;
+  font-size: 5rem;
+  margin: 1rem;
+
+  &__degrees {
+    color: black;
+  }
+
+  &__icon {
+    img{
+      background-color: inherit;
+    }
+  }
+}
+
+.sunny {
+  width: 100px;
+  height: 100px;
+  background-image: url('../../../assets/weather-icons/sunny.svg');
+  background-size: contain; /* or 'cover' depending on your needs */
+}

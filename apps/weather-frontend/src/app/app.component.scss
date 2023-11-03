@@ -1,0 +1,25 @@
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+/* Style for each menu item */
+.menu-item {
+  margin: 0 10px; /* Adds spacing between menu items */
+  padding: 10px 15px;
+  color: #716868;
+  text-decoration: none; /* Removes underline from links */
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.menu-item-left {
+  margin-right: auto;
+}
+
+/* Change background color on hover */
+.menu-item:hover {
+  background-color: white;
+}
