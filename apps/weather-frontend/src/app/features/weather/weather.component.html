@@ -1,13 +1,13 @@
 <div class='search'>
   <input class='search-input' type='text' [formControl]='locationControl' placeholder='Search for location'>
 </div>
-<div *ngIf="locationControl.value!==''">
-  <div class='container' *ngIf='weatherData$|async as weatherData'>
+<ng-container *ngIf="locationControl.value!==''">
+  <div class='container' *ngIf='currentWeather$|async as data'>
     <div class='weather-card'>
-      <p class='weather-card__title'><b>Weather</b> {{weatherData.location.name}}</p>
+      <p class='weather-card__title'><b>Weather</b> {{data.location.name}}</p>
       <app-divider></app-divider>
       <div class='weather-data'>
-        <div class='weather-data__degrees'>{{weatherData.current.temperature}}&deg;C
+        <div class='weather-data__degrees'>{{data.current.temperature}}&deg;C
         </div>
         <div class='sunny'></div>
 
@@ -17,4 +17,9 @@
     </div>
 
   </div>
-</div>
+</ng-container>
+
+<ng-container *ngIf='forecast$|async as data'>
+  {{data|json}}
+</ng-container>
+

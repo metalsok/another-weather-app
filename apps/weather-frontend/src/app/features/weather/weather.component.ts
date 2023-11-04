@@ -19,17 +19,27 @@ import { FormControl } from '@angular/forms';
 export class WeatherComponent implements OnInit {
   public locationControl: FormControl<string> = new FormControl();
 
-  public weatherData$: Observable<WeatherResponse> = of();
+  public currentWeather$: Observable<WeatherResponse> = of();
+  public forecast$: Observable<any> = of();
 
   constructor(private service: WeatherService) {}
 
   ngOnInit() {
-    this.weatherData$ = this.locationControl.valueChanges.pipe(
+    this.currentWeather$ = this.locationControl.valueChanges.pipe(
       startWith('Kavala'),
       filter(value => value.length >= 3),
       distinctUntilChanged(),
       debounceTime(300),
-      concatMap((location) => this.service.getWeatherData(location)),
+      concatMap((location) => this.service.getCurrentWeather(location)),
+      tap(console.log)
+    );
+
+    this.forecast$ = this.locationControl.valueChanges.pipe(
+      startWith('Kavala'),
+      filter(value => value.length >= 3),
+      distinctUntilChanged(),
+      debounceTime(300),
+      concatMap((location) => this.service.getForecast(location)),
       tap(console.log)
     );
   }

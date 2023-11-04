@@ -9,9 +9,15 @@ import { WeatherResponse } from '../../models/weather-response.interface';
 export class WeatherService {
   constructor(private httpClient: HttpClient) {}
 
-  getWeatherData(location: string): Observable<WeatherResponse> {
+  getCurrentWeather(location: string): Observable<WeatherResponse> {
     return this.httpClient
-      .get<WeatherResponse>(`api/weather?city=${location}`)
+      .get<WeatherResponse>(`api/weather/current?city=${location}`)
+      .pipe(catchError((err) => EMPTY));
+  }
+
+  getForecast(location: string): Observable<any> {
+    return this.httpClient
+      .get<any>(`api/weather/forecast?city=${location}`)
       .pipe(catchError((err) => EMPTY));
   }
 }
