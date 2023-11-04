@@ -31,8 +31,7 @@ export class WeatherComponent implements OnInit {
       distinctUntilChanged(),
       debounceTime(300),
       concatMap((location) => this.service.getCurrentWeather(location)),
-      tap(console.log)
-    );
+´    );
 
     this.forecast$ = this.locationControl.valueChanges.pipe(
       startWith('Kavala'),
@@ -40,7 +39,6 @@ export class WeatherComponent implements OnInit {
       distinctUntilChanged(),
       debounceTime(300),
       concatMap((location) => this.service.getForecast(location)),
-      tap(console.log)
     );
   }
 }
