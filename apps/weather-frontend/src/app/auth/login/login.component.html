@@ -1,0 +1,11 @@
+<div class='login-container'>
+  <form [formGroup]='authGroup' class='login-form' method='post'>
+    <label>
+      Email: <input type='text' formControlName='email'>
+    </label>
+    <label>
+      Password: <input type='text' formControlName='password'>
+    </label>
+    <button type='submit' (click)='onSubmit()'>Login</button>
+  </form>
+</div>

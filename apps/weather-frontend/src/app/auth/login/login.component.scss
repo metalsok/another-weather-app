@@ -1,0 +1,28 @@
+.login-container {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 0.5rem;
+  background-color: lightgrey;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-form label {
+  display: flex;
+  justify-content: space-between;
+}
+.login-form input {
+  border: none;
+  border-bottom: 1px solid lightgrey;
+  outline: none;
+}
+
+.login-form button {
+  margin-top: 10px;
+  background-color: teal;
+}

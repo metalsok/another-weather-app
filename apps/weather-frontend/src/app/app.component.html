@@ -2,6 +2,7 @@
   <a class="menu-item menu-item-left" routerLink="/homepage">Metalsok</a>
   <a class="menu-item" routerLink="weather">Weather</a>
   <a class="menu-item" routerLink="about">About</a>
+  <a class='menu-item' *ngIf='isAuthenticated' (click)='logout()'><i class="fa-solid fa-right-from-bracket"></i></a>
 </nav>
 <app-divider></app-divider>
 
