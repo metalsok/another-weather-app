@@ -6,7 +6,9 @@ import {
   distinctUntilChanged,
   filter,
   Observable,
-  of, startWith, tap
+  of,
+  startWith,
+  tap,
 } from 'rxjs';
 import { WeatherResponse } from '../../models/weather-response.interface';
 import { FormControl } from '@angular/forms';
@@ -27,18 +29,18 @@ export class WeatherComponent implements OnInit {
   ngOnInit() {
     this.currentWeather$ = this.locationControl.valueChanges.pipe(
       startWith('Kavala'),
-      filter(value => value.length >= 3),
+      filter((value) => value.length >= 3),
       distinctUntilChanged(),
       debounceTime(300),
-      concatMap((location) => this.service.getCurrentWeather(location)),
-´    );
+      concatMap((location) => this.service.getCurrentWeather(location))
+    );
 
     this.forecast$ = this.locationControl.valueChanges.pipe(
       startWith('Kavala'),
-      filter(value => value.length >= 3),
+      filter((value) => value.length >= 3),
       distinctUntilChanged(),
       debounceTime(300),
-      concatMap((location) => this.service.getForecast(location)),
+      concatMap((location) => this.service.getForecast(location))
     );
   }
 }
