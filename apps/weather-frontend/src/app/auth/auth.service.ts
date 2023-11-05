@@ -28,7 +28,6 @@ export class AuthService {
 
   public clearToken(): void {
     localStorage.removeItem('access_token');
-    this.router.navigate(['/'])
   }
 
   public isAuthenticated(): boolean {

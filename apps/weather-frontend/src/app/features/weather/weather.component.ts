@@ -8,7 +8,6 @@ import {
   Observable,
   of,
   startWith,
-  tap,
 } from 'rxjs';
 import { WeatherResponse } from '../../models/weather-response.interface';
 import { FormControl } from '@angular/forms';
@@ -42,5 +41,21 @@ export class WeatherComponent implements OnInit {
       debounceTime(300),
       concatMap((location) => this.service.getForecast(location))
     );
+  }
+
+  getIconClass(description: string): string {
+    if (description.includes('cloudy')) {
+      return 'cloudy';
+    }
+    if (description.includes('sun')) {
+      return 'sunny';
+    }
+    if (description.includes('rain')) {
+      return 'rainy';
+    }
+    if (description.includes('snow')) {
+      return 'snowy';
+    }
+    return 'sunny'
   }
 }

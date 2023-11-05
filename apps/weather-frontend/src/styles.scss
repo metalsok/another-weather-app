@@ -1,13 +1,79 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  font-family: "Droid Serif", serif;
-  font-size:1rem;
-}
-.container{
-  margin:10rem
+  font-family: "SansSerif", serif;
+  font-size: 1rem;
+  background-color: #212529;
+  color: white;
 }
 
-.d-flex{
+.container {
+  width: 100%
+}
+
+input {
+  display: block;
+  padding: 0.375rem 0.75rem;
+  font-weight: 400;
+  border-radius: 0.375rem;
+  line-height: 1.5;
+  appearance: none;
+  border: 1px solid;
+}
+
+.d-flex {
   display: flex;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
+/* CSS */
+button {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #fa6400;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 0.5;
+  margin: 0;
+  min-height: 1rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+button:hover,
+button:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+.card{
+
+}

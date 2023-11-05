@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -8,8 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: 'login.component.html',
   styleUrls: ['login.component.scss'],
 })
-export class LoginComponent implements OnInit {
-  returnUrl = '/';
+export class LoginComponent {
+  returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/'
   public authGroup: FormGroup = this.fb.group({
     email: ['', Validators.required],
     password: ['', Validators.required],
@@ -22,16 +22,12 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit() {
-    // Get the query params
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-  }
-
   onSubmit() {
     const { email, password } = this.authGroup.value;
     this.userService.login(email, password).subscribe((_) => {
-      this.router.navigateByUrl('/' + this.returnUrl);
-      this.returnUrl = '';
+      this.router.navigateByUrl(this.returnUrl).then((_) => {
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/'
+      });
     });
   }
 }

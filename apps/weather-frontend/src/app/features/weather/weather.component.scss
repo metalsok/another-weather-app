@@ -6,6 +6,7 @@
     border: none;
     border-bottom: 1px solid lightgrey;
     outline: none;
+    transition: all 1s ease;
   }
 }
 
@@ -37,6 +38,7 @@
 
   &__degrees {
     color: black;
+    font-size: 3rem;
   }
 
   &__icon {
@@ -51,4 +53,28 @@
   height: 100px;
   background-image: url('../../../assets/weather-icons/sunny.svg');
   background-size: contain; /* or 'cover' depending on your needs */
+}
+
+.cloudy {
+  width: 100px;
+  height: 100px;
+  background-image: url('../../../assets/weather-icons/cloud.svg');
+  background-size: contain; /* or 'cover' depending on your needs */
+}
+
+.rainy {
+  width: 100px;
+  height: 100px;
+  background-size: contain; /* or 'cover' depending on your needs */
+  background-image: url('../../../assets/weather-icons/rainy.svg');
+}
+
+input {
+
+}
+
+input:focus::placeholder {
+  margin-left: 10pc;
+  transform: scale(1.1); /* Slightly increase the size */
+  opacity: 0.7; /* Make it slightly transparent to emphasize the effect */
 }
