@@ -5,6 +5,7 @@ import { sequelize } from './config/dbConfig';
 import { UserRouter } from './modules/user/userRouter';
 import { authenticateToken } from './modules/user/userMiddleware';
 import { ChatGPTRouter } from './modules/chat-gpt/chatgptRouter';
+import { RawgRouter } from './modules/rawg/rawgRouter';
 
 const host = process.env.HOST ?? 'localhost';
 const port = process.env.PORT ? Number(process.env.PORT) : 3000;
@@ -19,6 +20,7 @@ app.use('/api/weather', authenticateToken, WeatherRouter);
 app.use('/api/chatgpt', ChatGPTRouter);
 
 app.use('/api/user', UserRouter);
+app.use('/api/games', RawgRouter);
 
 sequelize.sync().then(() => {
   app.listen(port, host, () => {
