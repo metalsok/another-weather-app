@@ -28,4 +28,27 @@ export const RawgService = {
       return error;
     }
   },
+  async fetchGames(platforms: string, dates: string) {
+    try {
+      const response = await axios.get(
+        `${this.baseUrl}/games?key=${process.env.RAWG_API_KEY}&platforms=${platforms}&dates=${dates}`
+      );
+      return gamesDataReducer(response.data);
+    } catch (error) {
+      return error;
+    }
+  },
 };
+
+function gamesDataReducer(data) {
+  return {
+    count: data.count,
+    results: data.results.map((result) => ({
+      id: result.id,
+      name: result.name,
+      background_image: result.background_image,
+      rating: result.rating,
+      short_screenshots: result.short_screenshots,
+    })),
+  };
+}

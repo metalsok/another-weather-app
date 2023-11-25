@@ -20,7 +20,7 @@ app.use('/api/weather', authenticateToken, WeatherRouter);
 app.use('/api/chatgpt', ChatGPTRouter);
 
 app.use('/api/user', UserRouter);
-app.use('/api/games', RawgRouter);
+app.use('/api/rawg', RawgRouter);
 
 sequelize.sync().then(() => {
   app.listen(port, host, () => {
