@@ -10,35 +10,29 @@ export const appRoutes: Route[] = [
   },
   {
     path: 'homepage',
-    loadChildren: () =>
-      import('./features/homepage/homepage.module').then(
-        (m) => m.HomepageModule
-      ),
+    loadChildren: () => import('./features/homepage/homepage.module').then((m) => m.HomepageModule),
     canActivate: [authGuard],
   },
   {
     path: 'weather',
-    loadChildren: () =>
-      import('./features/weather/weather.module').then((m) => m.WeatherModule),
+    loadChildren: () => import('./features/weather/weather.module').then((m) => m.WeatherModule),
     canActivate: [authGuard],
   },
   {
     path: 'about',
-    loadChildren: () =>
-      import('./features/about/about.module').then((m) => m.AboutModule),
+    loadChildren: () => import('./features/about/about.module').then((m) => m.AboutModule),
     canActivate: [authGuard],
   },
   {
     path: 'games',
-    loadComponent: () =>
-      import('./features/games/games.component').then((m) => m.GamesComponent),
+    loadComponent: () => import('./features/games/games.component').then((m) => m.GamesComponent),
     canActivate: [authGuard],
-    children:[
+    children: [
       {
-        path:':platformId',
-        component:GameListComponent
-      }
-    ]
+        path: ':platformId',
+        component: GameListComponent,
+      },
+    ],
   },
   {
     path: '',
