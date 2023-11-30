@@ -1,6 +1,7 @@
 import { Route } from '@angular/router';
 import { authGuard } from './auth/auth.guard';
 import { LoginComponent } from './auth/login/login.component';
+import { GameListComponent } from './features/games/game-list/game-list.component';
 
 export const appRoutes: Route[] = [
   {
@@ -26,6 +27,18 @@ export const appRoutes: Route[] = [
     loadChildren: () =>
       import('./features/about/about.module').then((m) => m.AboutModule),
     canActivate: [authGuard],
+  },
+  {
+    path: 'games',
+    loadComponent: () =>
+      import('./features/games/games.component').then((m) => m.GamesComponent),
+    canActivate: [authGuard],
+    children:[
+      {
+        path:':platformId',
+        component:GameListComponent
+      }
+    ]
   },
   {
     path: '',

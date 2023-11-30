@@ -1,12 +1,75 @@
-<nav class="menu">
-  <a class="menu-item menu-item-left" routerLink="/homepage">Metalsok</a>
-  <a class="menu-item" routerLink="weather">Weather</a>
-  <a class="menu-item" routerLink="about">About</a>
-  <a *ngIf='isAuthenticated' (click)='logout()' routerLink="login"><i class="fa-solid fa-right-from-bracket"></i></a>
-</nav>
+<!--<div class="flex">
+  &lt;!&ndash; Sidebar &ndash;&gt;
+  <div class="w-64 h-screen bg-gray-900 p-5">
+    <h1 class="text-xl font-bold mb-8">Protocol</h1>
+    <div class="mb-4">
+      <h2 class="text-gray-500 uppercase text-xs mb-2">Guides</h2>
+      <ul class="space-y-2">
+        <li class="bg-gray-700 px-3 py-2 rounded">Introduction</li>
+        <li>Quickstart</li>
+        <li>SDKs</li>
+        &lt;!&ndash; Add more list items here &ndash;&gt;
+      </ul>
+    </div>
+    <div>
+      <h2 class="text-gray-500 uppercase text-xs mb-2">Resources</h2>
+      <ul class="space-y-2">
+        <li>Contacts</li>
+        <li>Conversations</li>
+        &lt;!&ndash; Add more list items here &ndash;&gt;
+      </ul>
+    </div>
+  </div>
 
-<app-divider></app-divider>
+  &lt;!&ndash; Main Content &ndash;&gt;
+  <div class="flex-1 p-10">
+    <div class="flex justify-between items-center mb-10">
+      <div class="space-x-4">
+        <a href="#" class="text-green-400">API</a>
+        <a href="#" class="text-gray-400 hover:text-white">Documentation</a>
+        <a href="#" class="text-gray-400 hover:text-white">Support</a>
+      </div>
+      <a href="#" class="border px-4 py-2 rounded text-gray-400 hover:text-white hover:border-white">Sign in</a>
+    </div>
 
-<div class="container mx-auto">
-  <router-outlet></router-outlet>
+    <div class="mb-10">
+      <h2 class="text-3xl font-bold">API Documentation</h2>
+      <p class="text-gray-400 mt-4">Use the Protocol API to access contacts, conversations, group messages, and more and seamlessly integrate your product into the workflows of dozens of devoted Protocol users.</p>
+    </div>
+
+    &lt;!&ndash; Content Sections &ndash;&gt;
+    <div class="grid grid-cols-2 gap-10">
+      &lt;!&ndash; Add your content sections here &ndash;&gt;
+      <div class="bg-gray-700 p-5 rounded">
+        <h3 class="font-bold">Getting Started</h3>
+        &lt;!&ndash; Content &ndash;&gt;
+      </div>
+      <div class="bg-gray-700 p-5 rounded">
+        <h3 class="font-bold">Guides</h3>
+        &lt;!&ndash; Content &ndash;&gt;
+      </div>
+      &lt;!&ndash; Repeat for other sections &ndash;&gt;
+    </div>
+  </div>
+</div>-->
+
+
+<div class="flex bg-slate-800">
+  <!--Sidebar-->
+  <div class="basis-2/12 h-screen border-r-2 border-gray-700">
+    <div class="text-white ml-9 mt-6">Metalsok</div>
+    <ul class="flex flex-col h-full items-start mt-16 gap-4 text-sm text-sky-100 ml-16">
+      <li>Homepage</li>
+      <li>Weather</li>
+      <li>Games</li>
+    </ul>
+  </div>
+
+  <!--Main content-->
+
+  <div class="basis-10/12 flex flex-col h-screen w-5/6">
+    <div class="h-16 border-b-2 border-gray-700 "></div>
+    <div class="w-screen h-screen bg-white"></div>
+  </div>
+
 </div>
