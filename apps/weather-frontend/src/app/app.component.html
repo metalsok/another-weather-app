@@ -1,75 +1,29 @@
-<!--<div class="flex">
-  &lt;!&ndash; Sidebar &ndash;&gt;
-  <div class="w-64 h-screen bg-gray-900 p-5">
-    <h1 class="text-xl font-bold mb-8">Protocol</h1>
-    <div class="mb-4">
-      <h2 class="text-gray-500 uppercase text-xs mb-2">Guides</h2>
-      <ul class="space-y-2">
-        <li class="bg-gray-700 px-3 py-2 rounded">Introduction</li>
-        <li>Quickstart</li>
-        <li>SDKs</li>
-        &lt;!&ndash; Add more list items here &ndash;&gt;
-      </ul>
+<div class="flex items-center justify-center">
+  <div class="flex w-[calc(100vw-3rem)] h-[calc(100vh-3rem)] m-6 border border-black rounded  ">
+    <div class="flex flex-col font-sans font-thin m-6 gap-20 basis-3/12">
+      <section>
+        <header class="text-5xl text-gray-800">Sokrates Metallides</header>
+        <p class="mt-5 ml-1 text-2xl ">Designer & Web Developer</p>
+      </section>
+      <section class="ml-10 w-28 pr-5 border-r">
+        <nav class="flex flex-col gap-2">
+          <div *ngFor="let link of links; let i = index" class="flex items-center gap-1 ease-in duration-300">
+            <span [@fadeInOut] *ngIf="selectedIndex === i" class="w-2 h-2 inline-block bg-black "></span>
+            <a routerLink="/{{link}}" (click)="selectLink(i)"
+               class="hover:underline underline-offset-4">{{ link |titlecase}}</a>
+          </div>
+        </nav>
+      </section>
     </div>
-    <div>
-      <h2 class="text-gray-500 uppercase text-xs mb-2">Resources</h2>
-      <ul class="space-y-2">
-        <li>Contacts</li>
-        <li>Conversations</li>
-        &lt;!&ndash; Add more list items here &ndash;&gt;
-      </ul>
-    </div>
-  </div>
-
-  &lt;!&ndash; Main Content &ndash;&gt;
-  <div class="flex-1 p-10">
-    <div class="flex justify-between items-center mb-10">
-      <div class="space-x-4">
-        <a href="#" class="text-green-400">API</a>
-        <a href="#" class="text-gray-400 hover:text-white">Documentation</a>
-        <a href="#" class="text-gray-400 hover:text-white">Support</a>
+    <div class="basis-9/12">
+      <router-outlet></router-outlet>
+      <div
+        class="opacity-{{selectedIndex===0?1:0}} transition-opacity duration-500 text-sm font-light w-48 absolute bottom-28 right-28">
+        Born in Kavala, Greece. Elegant design,
+        Clean code whispers in each line,
+        Art and logic shine.
+        <div class="mt-1">Pursuing the golden strike between the two.</div>
       </div>
-      <a href="#" class="border px-4 py-2 rounded text-gray-400 hover:text-white hover:border-white">Sign in</a>
-    </div>
-
-    <div class="mb-10">
-      <h2 class="text-3xl font-bold">API Documentation</h2>
-      <p class="text-gray-400 mt-4">Use the Protocol API to access contacts, conversations, group messages, and more and seamlessly integrate your product into the workflows of dozens of devoted Protocol users.</p>
-    </div>
-
-    &lt;!&ndash; Content Sections &ndash;&gt;
-    <div class="grid grid-cols-2 gap-10">
-      &lt;!&ndash; Add your content sections here &ndash;&gt;
-      <div class="bg-gray-700 p-5 rounded">
-        <h3 class="font-bold">Getting Started</h3>
-        &lt;!&ndash; Content &ndash;&gt;
-      </div>
-      <div class="bg-gray-700 p-5 rounded">
-        <h3 class="font-bold">Guides</h3>
-        &lt;!&ndash; Content &ndash;&gt;
-      </div>
-      &lt;!&ndash; Repeat for other sections &ndash;&gt;
     </div>
   </div>
-</div>-->
-
-
-<div class="flex bg-slate-800">
-  <!--Sidebar-->
-  <div class="basis-2/12 h-screen border-r-2 border-gray-700">
-    <div class="text-white ml-9 mt-6">Metalsok</div>
-    <ul class="flex flex-col h-full items-start mt-16 gap-4 text-sm text-sky-100 ml-16">
-      <li>Homepage</li>
-      <li>Weather</li>
-      <li>Games</li>
-    </ul>
-  </div>
-
-  <!--Main content-->
-
-  <div class="basis-10/12 flex flex-col h-screen w-5/6">
-    <div class="h-16 border-b-2 border-gray-700 "></div>
-    <div class="w-screen h-screen bg-white"></div>
-  </div>
-
 </div>

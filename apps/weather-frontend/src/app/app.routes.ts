@@ -24,7 +24,7 @@ export const appRoutes: Route[] = [
     canActivate: [authGuard],
   },
   {
-    path: 'games',
+    path: 'gaming',
     loadComponent: () => import('./features/games/games.component').then((m) => m.GamesComponent),
     canActivate: [authGuard],
     children: [

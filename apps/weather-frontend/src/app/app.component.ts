@@ -7,23 +7,15 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
-    trigger('dropdownAnimation', [
+    trigger('fadeInOut', [
       state(
-        'closed',
+        'void',
         style({
           opacity: 0,
-          transform: 'scale(0.95)',
+          width: '0px', // Adjust the width
         })
       ),
-      state(
-        'open',
-        style({
-          opacity: 1,
-          transform: 'scale(1)',
-        })
-      ),
-      transition('closed => open', animate('100ms ease-out')),
-      transition('open => closed', animate('75ms ease-in')),
+      transition('void <=> *', animate(100)), // 500ms transition
     ]),
   ],
 })
@@ -37,6 +29,9 @@ export class AppComponent {
   }
 
   title = 'weather-frontend';
+  selected = true;
+  links = ['homepage', 'weather', 'gaming', 'about'];
+  selectedIndex = 0;
 
   get isAuthenticated() {
     return this.authService.isAuthenticated();
@@ -45,5 +40,9 @@ export class AppComponent {
   logout() {
     this.menuState = 'closed';
     this.authService.clearToken();
+  }
+
+  selectLink(i: number) {
+    this.selectedIndex = i;
   }
 }
