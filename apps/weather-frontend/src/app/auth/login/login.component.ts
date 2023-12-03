@@ -23,7 +23,6 @@ export class LoginComponent {
   ) {}
 
   onSubmit() {
-    console.log('i am called')
     const { email, password } = this.authGroup.value;
     this.userService.login(email, password).subscribe((_) => {
       this.router.navigateByUrl(this.returnUrl).then((_) => {

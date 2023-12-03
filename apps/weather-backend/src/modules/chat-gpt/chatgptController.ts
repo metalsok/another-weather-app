@@ -5,7 +5,6 @@ const openai = new OpenAI({
 });
 export const ChatgptController = {
   async talk(req, res) {
-    console.log(req.body.message);
     try {
       const response = await openai.chat.completions.create({
         messages: [{ role: 'system', content: req.body.message }],

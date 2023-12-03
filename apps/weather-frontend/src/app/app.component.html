@@ -1,6 +1,6 @@
 <div class="flex items-center justify-center">
   <div class="flex w-[calc(100vw-3rem)] h-[calc(100vh-3rem)] m-6 border border-black rounded  ">
-    <div class="flex flex-col font-sans font-thin m-6 gap-20 basis-3/12">
+    <div class="flex flex-col font-sans font-thin m-6 gap-20 basis-2/12">
       <section>
         <header class="text-5xl text-gray-800">Sokrates Metallides</header>
         <p class="mt-5 ml-1 text-2xl ">Designer & Web Developer</p>
@@ -15,15 +15,18 @@
         </nav>
       </section>
     </div>
-    <div class="basis-9/12">
+    <div class="basis-8/12">
       <router-outlet></router-outlet>
-      <div
-        class="opacity-{{selectedIndex===0?1:0}} transition-opacity duration-500 text-sm font-light w-48 absolute bottom-28 right-28">
+    </div>
+    <div class="flex flex-col-reverse items-end  basis-2/12  invisible lg:visible">
+      <div class="opacity-{{selectedIndex===0?1:0}} m-8 w-48 transition-opacity duration-500 text-sm font-light border-l pl-5">
         Born in Kavala, Greece. Elegant design,
-        Clean code whispers in each line,
-        Art and logic shine.
+        clean code whispers in each line,
+        Art and Logic shine.
         <div class="mt-1">Pursuing the golden strike between the two.</div>
-      </div>
+    </div>
+
+
     </div>
   </div>
 </div>
