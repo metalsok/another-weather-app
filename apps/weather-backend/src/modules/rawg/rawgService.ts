@@ -13,6 +13,7 @@ export const RawgService = {
         name: platform.name,
         slug: platform.slug,
         games_count: platform.games_count,
+        image_background:platform.image_background
       }));
     } catch (error) {
       return error;
@@ -23,7 +24,7 @@ export const RawgService = {
       const response = await axios.get(
         `${this.baseUrl}/platforms/lists/parents?key=${process.env.RAWG_API_KEY}`
       );
-      return response.data;
+      return response.data.results;
     } catch (error) {
       return error;
     }

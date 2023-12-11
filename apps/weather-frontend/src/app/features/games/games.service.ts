@@ -14,4 +14,8 @@ export class GamesService {
   getPlatforms() {
     return this.httpClient.get(`http://localhost:3000/api/rawg/platforms`);
   }
+
+  getPlatformParents() {
+    return this.httpClient.get(`http://localhost:3000/api/rawg/parents`);
+  }
 }

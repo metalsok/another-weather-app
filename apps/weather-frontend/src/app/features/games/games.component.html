@@ -1,4 +1,29 @@
-<div *ngIf="platforms$|async as platforms">
+<h1
+  class="text-center mt-10 font-thin font-sans text-gray-800 text-2xl underline underline-offset-8"
+>
+  Gaming section
+</h1>
 
-  <div>{{platforms|json}}</div>
-</div>
+<app-weather-app-select [items]="platformParents$|async"></app-weather-app-select>
+<!--
+<ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-28">
+  <li class="rounded-lg shadow">
+    <div class="h-36">
+    </div>
+  </li>
+
+</ul>
+-->
+<!--<ul class="flex flex-wrap mt-36 gap-10" *ngIf="platformParents$ | async as parents;">
+  <li *ngFor="let item of parents" class="w-28 h-36 rounded-lg shadow">
+
+    <div>{{item.name}}</div>
+
+  </li>
+</ul>-->
+<!--<ul class="flex flex-wrap mt-36" *ngIf="platforms$ | async as platforms;">
+  <li *ngFor="let item of platforms" class="w-28 h-36 rounded-lg shadow">
+    <img [src]="item.image_background" class="w-fit h-fit" alt="">
+
+  </li>
+</ul>-->
