@@ -1,4 +1,4 @@
-import { UserErrors, UserRepository } from '../user/user.repository';
+import { UserErrors, UserRepository } from './user.repository';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import { ConflictException, Injectable, UnauthorizedException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
