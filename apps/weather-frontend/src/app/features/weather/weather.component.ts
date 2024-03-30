@@ -35,20 +35,4 @@ export class WeatherComponent implements OnInit {
 
     );
   }
-
-  getIconClass(description: string): string {
-    if (description.includes('cloudy')) {
-      return 'cloudy';
-    }
-    if (description.includes('sun')) {
-      return 'sunny';
-    }
-    if (description.includes('rain')) {
-      return 'rainy';
-    }
-    if (description.includes('snow')) {
-      return 'snowy';
-    }
-    return 'sunny';
-  }
 }
