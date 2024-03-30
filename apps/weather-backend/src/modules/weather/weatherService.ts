@@ -1,26 +1,17 @@
 import axios from 'axios';
 
-const weatherApiKey = process.env.WEATHER_API_KEY;
+const weatherApiKey = process.env.TOMORROWIO_API_KEY;
 
 function transformWeatherData(data) {
-  return {
-    location: data.location.name,
-    country: data.location.country,
-    description: data.current.weather_descriptions[0],
-    temperature: data.current.temperature,
-    feelslike: data.current.feelslike,
-  };
+  console.log(data);
+
+  return data.timelines.daily;
 }
 
 export const WeatherService = {
-  async getCurrentWeather(city) {
-    const url = `http://api.weatherstack.com/current?access_key=${weatherApiKey}&query=${city}`;
+  async getCurrentWeather(lat = '40.9376', lon = '40.9376') {
+    const url = `https://api.tomorrow.io/v4/weather/forecast?location=${lat},${lon}&apikey=${weatherApiKey}`;
     const response = await axios.get(url);
     return transformWeatherData(response.data);
-  },
-  async getForecast(city) {
-    const url = `http://api.weatherstack.com/forecast?access_key=${weatherApiKey}&query=${city}`;
-    const response = await axios.get(url);
-    return response.data;
   },
 };

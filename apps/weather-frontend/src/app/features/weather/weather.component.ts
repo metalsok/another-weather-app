@@ -7,9 +7,8 @@ import {
   filter,
   Observable,
   of,
-  startWith,
+  startWith, tap
 } from 'rxjs';
-import { WeatherResponse } from '../../models/weather-response.interface';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -19,9 +18,7 @@ import { FormControl } from '@angular/forms';
 })
 export class WeatherComponent implements OnInit {
   public locationControl: FormControl<string> = new FormControl();
-
-  public currentWeather$: Observable<WeatherResponse> = of();
-  public forecast$: Observable<any> = of();
+  public currentWeather$: Observable<any[]> = of();
 
   constructor(private service: WeatherService) {}
 
@@ -31,15 +28,11 @@ export class WeatherComponent implements OnInit {
       filter((value) => value.length >= 3),
       distinctUntilChanged(),
       debounceTime(300),
-      concatMap((location) => this.service.getCurrentWeather(location))
-    );
+      concatMap((location) => {
+        return this.service.getCurrentWeather(location);
+      }),
+      tap(console.log)
 
-    this.forecast$ = this.locationControl.valueChanges.pipe(
-      startWith('Kavala'),
-      filter((value) => value.length >= 3),
-      distinctUntilChanged(),
-      debounceTime(300),
-      concatMap((location) => this.service.getForecast(location))
     );
   }
 
@@ -56,6 +49,6 @@ export class WeatherComponent implements OnInit {
     if (description.includes('snow')) {
       return 'snowy';
     }
-    return 'sunny'
+    return 'sunny';
   }
 }
