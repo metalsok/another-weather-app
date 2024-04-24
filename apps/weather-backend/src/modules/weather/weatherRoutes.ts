@@ -4,7 +4,7 @@ import { authenticateToken } from '../user/userMiddleware';
 
 const router = express.Router();
 
-router.get('/current',authenticateToken, WeatherController.getCurrentWeather);
+router.get('/current', WeatherController.getCurrentWeather);
 
 // Export the router
 export { router as WeatherRouter };

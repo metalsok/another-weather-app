@@ -1,14 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from './weather.service';
-import {
-  concatMap,
-  debounceTime,
-  distinctUntilChanged,
-  filter,
-  Observable,
-  of,
-  startWith, tap
-} from 'rxjs';
+import { concatMap, debounceTime, distinctUntilChanged, filter, startWith } from 'rxjs';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -18,21 +10,23 @@ import { FormControl } from '@angular/forms';
 })
 export class WeatherComponent implements OnInit {
   public locationControl: FormControl<string> = new FormControl();
-  public currentWeather$: Observable<any[]> = of();
+  public currentWeather$ = this.locationControl.valueChanges.pipe(
+    startWith('Kavala'),
+    filter((value) => value.length >= 3),
+    distinctUntilChanged(),
+    debounceTime(300),
+    concatMap((location) => {
+      return this.service.getCurrentWeather(location);
+    })
+  );
 
   constructor(private service: WeatherService) {}
 
-  ngOnInit() {
-    this.currentWeather$ = this.locationControl.valueChanges.pipe(
-      startWith('Kavala'),
-      filter((value) => value.length >= 3),
-      distinctUntilChanged(),
-      debounceTime(300),
-      concatMap((location) => {
-        return this.service.getCurrentWeather(location);
-      }),
-      tap(console.log)
+  ngOnInit(): void {
+    this.service.message$.subscribe(console.log);
+  }
 
-    );
+  sendMessage() {
+    this.service.sendMessage('Hello world');
   }
 }
